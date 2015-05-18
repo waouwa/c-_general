@@ -12,9 +12,9 @@ class User {
     const std::string date_created; // will probably change to custom time class later on
 
     /* mutable values */
-    UserData userData; // any static data 
-    UserSettings userSettings; // any mutable settings and variables
-    UserPermissions userPermissions; // user restrictions based on above two
+    UserData &userData; // any static data 
+    UserSettings &userSettings; // any mutable settings and variables
+    UserPermissions &userPermissions; // user restrictions based on above two
   
   public:
     User();
@@ -28,10 +28,11 @@ class User {
     bool operator== (const User &param_user) const;
     bool operator!= (const User &param_user) const;
     
-    std::string getUserID(const User &user_ref);
-    std::string getDateCreated(const User &user_ref);
-
+    const std::string getUserID(const User &user_ref);
+    const std::string getDateCreated(const User &user_ref);
+    &UserData setUserData(const UserData &user_data);
     
+
 }
 
 #endif
